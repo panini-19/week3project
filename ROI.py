@@ -1,18 +1,13 @@
-import math
-
 class RentalProperty():
-    def __init__(self, Income, Expenses, CashFlow):
-        self.Income = []
-        self.Expenses = []
-        self.CashFlow = []
+    def __init__(self, MonthlyIncome, MonthlyExpenses, MonthlyCashFlow):
+        self.Income = MonthlyIncome
+        self.Expenses = MonthlyExpenses
+        self.CashFlow = MonthlyCashFlow
 
-
-    def Income(self):
+    def Property(self):
         RentalIncome = input('What is your monthly rental income?')
         print('Monthly Income:', RentalIncome)
 
-
-    def Expenses(self):
         print('For each of the following categories, please list your MONTHLY expense')
         Tax = input('Enter your monthly tax expense')
         print('Tax:', Tax)
@@ -28,32 +23,50 @@ class RentalProperty():
         print('Vacancy:', Vacancy)
         Repairs = input('How much do you set aside monthly for repairs?')
         print('Repairs:', Repairs)
-        CapExp = input('How much do you set aside monthly for capital expenses?')
+        CapExp = input(
+            'How much do you set aside monthly for capital expenses?')
         print('Capital Expenses:', CapExp)
         PropMan = input('What is the monthly cost of your property manager?')
         print('Property Manager:', PropMan)
         Mortgage = input('How much is your monthly mortgage?')
         print('Mortgage:', Mortgage)
-        Total_Exp = int(Tax) + int(Insurance) + int(Utilities) + int(HOA) + int(Landscaping) + int(Vacancy) + int(Repairs) + int(CapExp) + int(PropMan) + int(Mortgage)
+        Total_Exp = int(Tax) + int(Insurance) + int(Utilities) + int(HOA) + int(Landscaping) + \
+            int(Vacancy) + int(Repairs) + int(CapExp) + \
+            int(PropMan) + int(Mortgage)
         print('Total Monthly Expenses:', Total_Exp)
-
-    def CashFlow(self):
-        MonthlyCashFlow = ()
+        MonthlyCashFlow = int(RentalIncome) - int(Total_Exp)
         print('Total Monthly Cash Flow:', MonthlyCashFlow)
-    
+
+        DownPayment = input('What was your down payment on the property?')
+        print('Down Payment:', DownPayment)
+        ClosingCosts = input('What is the total of your closing costs?')
+        print('Closing Costs:', ClosingCosts)
+        RehabBud = input('How much was your rehab budget?')
+        print('Rehab Budget:', RehabBud)
+        TotalInvestment = int(DownPayment) + int(ClosingCosts) + int(RehabBud)
+        print('Total Investment:', TotalInvestment)
+        AnnualCashFlow = MonthlyCashFlow*12
+        print('Annual Cash Flow:', AnnualCashFlow)
+        ROI = int(AnnualCashFlow) / int(TotalInvestment)*100
+        print('Your ROI is:', ROI,'%', 'Have a great day!')
+
     def runner(self):
         while True:
-            selection = input('Would you like to use this ROI calculator? Yes or No? ').lower()
+            selection = input(
+                'Would you like to use this ROI calculator? Yes or No? ').lower()
             if (selection == 'yes'):
-                self.Income()
-                self.Expenses()
-                self.CashFlow()
+                self.Property()
+                break
             elif (selection == 'no'):
                 print('Have a great day!')
-            else: 
+                break
+            elif (selection == 'quit'):
+                break
+            else:
                 print('Invalid input, please try again')
 
-ROI = RentalProperty()
+
+ROI = RentalProperty(MonthlyIncome=(),MonthlyExpenses=(), MonthlyCashFlow=())
 ROI.runner()
     
 
