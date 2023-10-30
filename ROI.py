@@ -34,6 +34,7 @@ class RentalProperty():
             int(Vacancy) + int(Repairs) + int(CapExp) + \
             int(PropMan) + int(Mortgage)
         print('Total Monthly Expenses:', Total_Exp)
+        
         MonthlyCashFlow = int(RentalIncome) - int(Total_Exp)
         print('Total Monthly Cash Flow:', MonthlyCashFlow)
 
@@ -48,7 +49,7 @@ class RentalProperty():
         AnnualCashFlow = MonthlyCashFlow*12
         print('Annual Cash Flow:', AnnualCashFlow)
         ROI = int(AnnualCashFlow) / int(TotalInvestment)*100
-        print('Your ROI is:', ROI,'%', 'Have a great day!')
+        print('Your ROI is:', ROI,'%.' 'Please use this number to make some wise decisions')
 
     def runner(self):
         while True:
